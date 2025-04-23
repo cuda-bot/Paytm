@@ -91,8 +91,8 @@ router.put("/", authMiddleware, async (req, res) => {
 });
 
 // BULK USER SEARCH
-router.get("/bulk", authMiddleware, async (req, res) => {
-    const filter = req.body.filter || "";
+router.get("/bulk", async (req, res) => {
+    const filter = req.query.filter || "";
 
     const users = await User.find({
         $or: [
